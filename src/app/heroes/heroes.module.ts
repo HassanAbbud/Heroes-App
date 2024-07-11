@@ -19,7 +19,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule
+    HeroesRoutingModule,
   ]
 })
 export class HeroesModule { }
