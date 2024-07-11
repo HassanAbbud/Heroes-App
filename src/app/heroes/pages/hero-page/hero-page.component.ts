@@ -10,6 +10,7 @@ import { Hero } from '../../interfaces/heroe.interface';
 })
 export class HeroPageComponent implements OnInit{
 
+
   public hero?: Hero;
 
   constructor(
@@ -30,6 +31,10 @@ export class HeroPageComponent implements OnInit{
         this.hero = hero;
         return;
       })
+  }
+
+  goBack() {
+    this.router.navigateByUrl("/heroes/list")
   }
 
 }
