@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 import { switchMap } from 'rxjs';
 import { Hero, Publisher } from '../../interfaces/heroe.interface';
 import { HeroesService } from '../../services/heroes.service';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'heroes-new-hero-page',
@@ -33,6 +36,7 @@ export class NewHeroPageComponent implements OnInit{
     private router:Router,
     private activatedRoute: ActivatedRoute,
     private snackbar: MatSnackBar,
+    private dialog: MatDialog,
   ){}
 
   get currentHero(): Hero{
@@ -73,6 +77,15 @@ export class NewHeroPageComponent implements OnInit{
         this.router.navigate(['/heroes/edit', hero.id])
         this.showSnackbar(`${hero.superhero} created!`)
       });
+  }
+
+  onDeleteHero() {
+    if ( !this.currentHero.id ) throw Error('Hero id is required');
+
+    const dialogRef = this.dialog.open( ConfirmDialogComponent, {
+      data: this.heroForm.value
+    });
+
 
   }
 
