@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "user": "John Doe",
       "email": "john.due@gmail.com"
     }
   ],
@@ -175,16 +175,8 @@
       "alter_ego": "Yakuza",
       "first_appearane": "Yakuza 0",
       "characters": "Kiryu Kazuma",
-      "alt_img": "https://w7.pngwing.com/pngs/51/529/png-transparent-kazuma-kiryu-thumbnail.png"
-    },
-    {
-      "id": "alvWNz6",
-      "superhero": "test to delete",
-      "publisher": "DC Comics",
-      "alter_ego": "test to delete",
-      "first_appearance": "test to delete",
-      "characters": "test",
-      "alt_img": ""
+      "alt_img": "https://w7.pngwing.com/pngs/51/529/png-transparent-kazuma-kiryu-thumbnail.png",
+      "first_appearance": "Yakuza 0"
     }
   ]
 }
