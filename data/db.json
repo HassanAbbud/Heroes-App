@@ -166,7 +166,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "DQBXGXe",
+      "superhero": "Kiryu",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Yakuza",
+      "first_appearane": "Yakuza 0",
+      "characters": "Kiryu Kazuma",
+      "alt_img": "https://w7.pngwing.com/pngs/51/529/png-transparent-kazuma-kiryu-thumbnail.png"
     }
   ]
 }
-
