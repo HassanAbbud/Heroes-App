@@ -1,5 +1,5 @@
 <h1>
-  Edit / Add
+  {{currentHero.id ? "Edit" : "Add" }}
   hero
 </h1>
 
@@ -80,6 +80,7 @@
 
         <div class="flex justify-content-between">
           <button
+            *ngIf="currentHero.id"
             mat-flat-button
             color="warn"
           >
