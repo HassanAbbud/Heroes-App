@@ -34,6 +34,18 @@ export class NewHeroPageComponent {
   onSubmit(): void{
     if (this.heroForm.invalid) return;
 
+    if(this.currentHero.id){
+      this.heroService.updateHero(this.currentHero)
+        .subscribe(hero => {
+          //TODO shwo snackbar
+        });
+    return
+    }
+
+    this.heroService.addHero(this.currentHero)
+      .subscribe(hero => {
+        //TODO: show snackbar, nav to /heroes/edit/hero.id
+      });
     //this.heroService.updateHero(this.heroForm.value)
   }
 }
