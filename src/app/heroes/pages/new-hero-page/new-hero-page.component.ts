@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Publisher } from '../../interfaces/heroe.interface';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Hero, Publisher } from '../../interfaces/heroe.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'heroes-new-hero-page',
@@ -8,7 +9,7 @@ import { Publisher } from '../../interfaces/heroe.interface';
 })
 export class NewHeroPageComponent {
 
-  public heroForm = new FormControl({
+  public heroForm = new FormGroup({
     id: new FormControl<string>(''),
     superhero: new FormControl<string>('', {nonNullable: true}),
     publisher: new FormControl<Publisher>(Publisher.DCComics),
@@ -22,4 +23,17 @@ export class NewHeroPageComponent {
     { id: 'DC Comics', desc: 'DC - Comics' },
     { id: 'Marvel Comics', desc: 'Marvel - Comics' },
   ];
+
+  constructor(private heroService:HeroesService){}
+
+  get currentHero(): Hero{
+    const hero = this.heroForm.value as Hero;
+    return hero;
+  }
+
+  onSubmit(): void{
+    if (this.heroForm.invalid) return;
+
+    //this.heroService.updateHero(this.heroForm.value)
+  }
 }
