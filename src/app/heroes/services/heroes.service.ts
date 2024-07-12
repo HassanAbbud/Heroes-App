@@ -41,8 +41,8 @@ export class HeroesService {
 
     return this.http.delete<Hero>(`${ this.baseUrl }/heroes/${ id }` )
       .pipe(
-        catchError(err => of(false)), //couldn't delete
-        map( resp => true)
+        map( resp => true),
+        catchError(err => of(false)) //couldn't delete
       );
   }
 }
