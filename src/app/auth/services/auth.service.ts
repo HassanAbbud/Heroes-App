@@ -17,11 +17,16 @@ export class AuthenticationService {
     return structuredClone(this.user);
   }
 
-  login(email:string, password:string): Observable<User>{
+  logIn(email:string, password:string): Observable<User>{
     return this.http.get<User>(`${this.baseUrl}/users/1`)
       .pipe(
         tap( user => this.user = user ),
         tap( user => localStorage.setItem('token', 'aASDgjhasda.asdasd.aadsf123k' )),
       );
+  }
+
+  logOut(){
+    this.user = undefined;
+    localStorage.clear();
   }
 }
