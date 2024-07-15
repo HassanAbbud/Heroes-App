@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  get currentUser():User|undefined{
+  get currentUser(): User|undefined{
     if (!this.user) return undefined;
     return structuredClone(this.user);
   }
@@ -31,15 +31,16 @@ export class AuthenticationService {
   }
 
   checkAuthenticationStatus(): Observable<boolean>{
-    if (localStorage.getItem('token')) return of(false);
-    const token = localStorage.getItem('token')
+    if ( !localStorage.getItem('token') ) return of(false);
 
-    return this.http.get<User>(`${this.baseUrl}/users/1`)
+    const token = localStorage.getItem('token');
+
+    return this.http.get<User>(`${ this.baseUrl }/users/1`)
       .pipe(
-        tap(user => this.user = user),
-        map(user => !!user),
-        catchError(err => of(false))
-      )
-    return of(true);
+        tap( user => this.user = user ),
+        map( user => !!user ),
+        catchError( err => of(false) )
+      );
+
   }
 }
